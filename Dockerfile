@@ -4,8 +4,8 @@ WORKDIR /app
 
 RUN apt-get update 
 RUN apt-get install apache2 -y
-RUN systemctl start apache2
-RUN systemctl enable apache2
+RUN apt-get start apache2
+RUN apt-get enable apache2
 
 EXPOSE 5000
 
