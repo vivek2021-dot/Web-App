@@ -1,14 +1,21 @@
-FROM ubuntu
+# Use the official Ubuntu as the base image
+FROM ubuntu:latest
 
-LABEL org.opencontainers.image.source = "https://github.com/vivek2021-dot/Web-App.git"
-
+# Set the working directory within the container
 WORKDIR /app
-COPY $srcDir/app ./app
 
-RUN apt-get update 
-RUN apt-get install -y apache2 
+# Copy the web app files into the container
+COPY . /app
 
-EXPOSE 5000
+# Install any necessary dependencies (e.g., if your web app requires specific tools or libraries)
+# RUN apt-get update && apt-get install -y apache2
 
-CMD ["apache2ctl", "-D", "FOREGROUND"]  
- 
+# Expose the port on which your web app will run (e.g., port 80)
+EXPOSE 80
+
+# Command to run your web app (this assumes your main HTML file is named 'index.html')
+CMD ["sh", "-c", "exec nginx -g 'daemon off;';"]
+
+# Alternatively, if you are using a simple HTTP server to serve your web app, you can use:
+# CMD ["python3", "-m", "http.server", "80"]
+
