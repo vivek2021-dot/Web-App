@@ -1,6 +1,6 @@
-FROM Ubuntu
+FROM ubuntu
 
-LABEL org.opencontainers.image.source = "https://github.com/vivek2021-dot/Python-Webapp.git"
+LABEL org.opencontainers.image.source = "https://github.com/vivek2021-dot/Web-App.git"
 
 WORKDIR /app
 COPY $srcDir/app ./app
