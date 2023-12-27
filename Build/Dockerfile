@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Install any necessary dependencies (e.g., if your web app requires specific tools or libraries)
-# RUN apt-get update && apt-get install -y apache2
+RUN apt-get update && apt-get install -y apache2
 
 # Expose the port on which your web app will run (e.g., port 80)
 EXPOSE 80
